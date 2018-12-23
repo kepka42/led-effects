@@ -113,12 +113,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Effect.h" />
+    <ClInclude Include="StarRunEffect.h" />
+    <ClInclude Include="StarRunFillEffect.h" />
     <ClInclude Include="StarSkyEffect.h" />
+    <ClInclude Include="StaticColorEffect.h" />
     <ClInclude Include="__vm\.LedEffects.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="StarRunEffect.cpp" />
+    <ClCompile Include="StarRunFillEffect.cpp" />
     <ClCompile Include="StarSkyEffect.cpp" />
+    <ClCompile Include="StaticColorEffect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

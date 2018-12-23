@@ -15,11 +15,11 @@ StarSkyEffect::~StarSkyEffect()
 
 void StarSkyEffect::loop()
 {
-	FastLED.setBrightness(255);
+	FastLED.setBrightness(this->_brightness);
 	this->clearLine();
 	for (int i = 0; i < this->_numStars; i++) {
 		int randLed = random(this->_numLeds);
-		this->_leds[randLed] = CRGB::White;
+		this->_leds[randLed] = *this->_color;
 	}
 
 	delay(100);

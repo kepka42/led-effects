@@ -20,11 +20,39 @@ enum EFFECT {
 
 CRGB leds[NUM_LEDS];
 
+#define NUM_COLORS 24
+CRGB colors[NUM_COLORS] = {
+	CRGB::AliceBlue,
+	CRGB::Amethyst,
+	CRGB::BlanchedAlmond,
+	CRGB::BlueViolet,
+	CRGB::Chartreuse,
+	CRGB::Coral,
+	CRGB::CornflowerBlue,
+	CRGB::Crimson,
+	CRGB::DarkGreen,
+	CRGB::DarkOliveGreen,
+	CRGB::DarkOrange,
+	CRGB::DarkOrchid,
+	CRGB::DarkRed,
+	CRGB::DarkSeaGreen,
+	CRGB::DarkSlateBlue,
+	CRGB::DarkViolet,
+	CRGB::DeepSkyBlue,
+	CRGB::DimGray,
+	CRGB::LightSkyBlue,
+	CRGB::Lime,
+	CRGB::Magenta,
+	CRGB::Orange,
+	CRGB::PaleGreen,
+	CRGB::White
+};
+
 byte effects[NUM_EFFECTS] = {
-  EFFECT::STAR_SKY,
-  EFFECT::STATIC_COLOR,
-  EFFECT::STAR_RUN,
-  EFFECT::STAR_RUN_FILL,
+	EFFECT::STATIC_COLOR,
+	EFFECT::STAR_SKY,
+	EFFECT::STAR_RUN,
+	EFFECT::STAR_RUN_FILL,
 };
 int currentEffectPos;
 
@@ -41,13 +69,14 @@ void setup() {
 	randomSeed(analogRead(0));
 
 	FastLED.addLeds<NEOPIXEL, 12>(leds, NUM_LEDS);
-	FastLED.setBrightness(75);
+	FastLED.setBrightness(20);
 
 	currentEffectPos = 0;
 	startAt = millis();
 
+	int randColor = random(NUM_COLORS);
 	currentEffect = new StarSkyEffect(STAR_SKY_NUM_STARS);
-	currentEffect->init(leds, NUM_LEDS);
+	currentEffect->init(leds, NUM_LEDS, &colors[randColor], 100);
 }
 
 void loop() {
@@ -61,7 +90,6 @@ void loop() {
 }
 
 void nextEffect() {
-	Serial.println("next effect");
 	if (currentEffectPos >= NUM_EFFECTS - 1) {
 		currentEffectPos = 0;
 	}
@@ -69,9 +97,8 @@ void nextEffect() {
 		currentEffectPos++;
 	}
 
-	Serial.println("start clear effect");
 	delete currentEffect;
-	Serial.println("clear current effect");
+
 	if (effects[currentEffectPos] == EFFECT::STAR_SKY) {
 		currentEffect = new StarSkyEffect(STAR_SKY);
 	}
@@ -85,14 +112,11 @@ void nextEffect() {
 		currentEffect = new StaticColorEffect();
 	}
 
-	Serial.println("Create new effect");
+	int randColor = random(NUM_COLORS);
 
-	currentEffect->init(leds, NUM_LEDS);
-	Serial.println("Init effect");
+	currentEffect->init(leds, NUM_LEDS, &colors[randColor], 100);
 	startAt = millis();
 	clearLine();
-
-	Serial.println("Done.");
 }
 
 void clearLine() {
