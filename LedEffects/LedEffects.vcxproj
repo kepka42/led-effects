@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Effect.h" />
+    <ClInclude Include="SmoothFadeEffect.h" />
     <ClInclude Include="StarRunEffect.h" />
     <ClInclude Include="StarRunFillEffect.h" />
     <ClInclude Include="StarSkyEffect.h" />
@@ -121,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="SmoothFadeEffect.cpp" />
     <ClCompile Include="StarRunEffect.cpp" />
     <ClCompile Include="StarRunFillEffect.cpp" />
     <ClCompile Include="StarSkyEffect.cpp" />

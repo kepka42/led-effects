@@ -15,12 +15,11 @@ StaticColorEffect::~StaticColorEffect()
 
 void StaticColorEffect::loop()
 {
-	FastLED.setBrightness(this->_brightness);
 	if (!this->_isColorFilled) {
+		FastLED.setBrightness(this->_brightness);
 		for (int i = 0; i < this->_numLeds; i++) {
 			this->_leds[i] = this->_color;
 		}
+		this->_isColorFilled = true;
 	}
-
-	this->_isColorFilled = true;
 }

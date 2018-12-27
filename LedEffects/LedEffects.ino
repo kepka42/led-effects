@@ -5,17 +5,20 @@
 #include "StarRunFillEffect.h"
 #include "StarRunEffect.h"
 #include "StaticColorEffect.h"
+#include "SmoothFadeEffect.h"
 
-#define NUM_EFFECTS 4
+#define NUM_EFFECTS 5
 #define NUM_LEDS 300
-#define SECONDS_PER_EFFECT 30
+#define SECONDS_PER_EFFECT 60
+#define BRIGHTNESS 100
 
 #define STAR_SKY_NUM_STARS 3
 enum EFFECT {
-	STAR_SKY = B00001,
-	STAR_RUN = B00010,
-	STAR_RUN_FILL = B00011,
-	STATIC_COLOR = B00100
+	STAR_SKY,
+	STAR_RUN,
+	STAR_RUN_FILL,
+	STATIC_COLOR,
+	SMOOTH_FADE,
 };
 
 CRGB leds[NUM_LEDS];
@@ -53,6 +56,7 @@ byte effects[NUM_EFFECTS] = {
 	EFFECT::STAR_SKY,
 	EFFECT::STAR_RUN,
 	EFFECT::STAR_RUN_FILL,
+	EFFECT::SMOOTH_FADE
 };
 int currentEffectPos;
 
@@ -74,9 +78,8 @@ void setup() {
 	currentEffectPos = 0;
 	startAt = millis();
 
-	int randColor = random(NUM_COLORS);
-	currentEffect = new StarSkyEffect(STAR_SKY_NUM_STARS);
-	currentEffect->init(leds, NUM_LEDS, &colors[randColor], 100);
+	currentEffect = new StaticColorEffect();
+	currentEffect->init(leds, NUM_LEDS, colors, NUM_COLORS, BRIGHTNESS);
 }
 
 void loop() {
@@ -100,7 +103,7 @@ void nextEffect() {
 	delete currentEffect;
 
 	if (effects[currentEffectPos] == EFFECT::STAR_SKY) {
-		currentEffect = new StarSkyEffect(STAR_SKY);
+		currentEffect = new StarSkyEffect(STAR_SKY_NUM_STARS);
 	}
 	else if (effects[currentEffectPos] == EFFECT::STAR_RUN) {
 		currentEffect = new StarRunEffect();
@@ -111,12 +114,15 @@ void nextEffect() {
 	else if (effects[currentEffectPos] == EFFECT::STATIC_COLOR) {
 		currentEffect = new StaticColorEffect();
 	}
+	else if (effects[currentEffectPos] == EFFECT::SMOOTH_FADE) {
+		currentEffect = new SmoothFadeEffect();
+	}
 
-	int randColor = random(NUM_COLORS);
 
-	currentEffect->init(leds, NUM_LEDS, &colors[randColor], 100);
+	currentEffect->init(leds, NUM_LEDS, colors, NUM_COLORS, BRIGHTNESS);
 	startAt = millis();
 	clearLine();
+	FastLED.setBrightness(BRIGHTNESS);
 }
 
 void clearLine() {
