@@ -6,7 +6,7 @@ class StarRunEffect :
 public:
 	StarRunEffect();
 	~StarRunEffect();
-	void loop();
+	void loop() override;
 private:
 	int _led;
 };

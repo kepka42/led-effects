@@ -6,8 +6,10 @@
 #include "StarRunEffect.h"
 #include "StaticColorEffect.h"
 #include "SmoothFadeEffect.h"
+#include "StorageEffect.h"
 
-#define NUM_EFFECTS 5
+#define PIN 12
+#define NUM_EFFECTS 6
 #define NUM_LEDS 300
 #define SECONDS_PER_EFFECT 60
 #define BRIGHTNESS 100
@@ -19,6 +21,7 @@ enum EFFECT {
 	STAR_RUN_FILL,
 	STATIC_COLOR,
 	SMOOTH_FADE,
+	STORAGE,
 };
 
 CRGB leds[NUM_LEDS];
@@ -56,7 +59,8 @@ byte effects[NUM_EFFECTS] = {
 	EFFECT::STAR_SKY,
 	EFFECT::STAR_RUN,
 	EFFECT::STAR_RUN_FILL,
-	EFFECT::SMOOTH_FADE
+	EFFECT::SMOOTH_FADE,
+	EFFECT::STORAGE
 };
 int currentEffectPos;
 
@@ -72,7 +76,7 @@ void setup() {
 	Serial.begin(9600);
 	randomSeed(analogRead(0));
 
-	FastLED.addLeds<NEOPIXEL, 12>(leds, NUM_LEDS);
+	FastLED.addLeds<NEOPIXEL, PIN>(leds, NUM_LEDS);
 	FastLED.setBrightness(20);
 
 	currentEffectPos = 0;
@@ -83,7 +87,6 @@ void setup() {
 }
 
 void loop() {
-	Serial.println(millis() - startAt);
 	if (millis() - startAt >= SECONDS_PER_EFFECT * (long)1000) {
 		nextEffect();
 	}
@@ -116,6 +119,9 @@ void nextEffect() {
 	}
 	else if (effects[currentEffectPos] == EFFECT::SMOOTH_FADE) {
 		currentEffect = new SmoothFadeEffect();
+	}
+	else if (effects[currentEffectPos] == EFFECT::STORAGE) {
+		currentEffect = new StorageEffect();
 	}
 
 

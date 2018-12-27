@@ -6,7 +6,7 @@ class StarSkyEffect :
 public:
 	StarSkyEffect(int numStars);
 	~StarSkyEffect();
-	virtual void loop() override;
+	void loop() override;
 private:
 	int _numStars;
 };

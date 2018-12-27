@@ -7,7 +7,7 @@ public:
 	StarRunFillEffect();
 	~StarRunFillEffect();
 
-	void loop();
+	void loop() override;
 private:
 	int _led;
 	bool _isBlackLoop = false;

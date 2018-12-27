@@ -7,7 +7,7 @@ public:
 	Effect();
 	~Effect();
 	virtual void loop() = 0;
-	void init(CRGB *leds, int numLeds, CRGB *colors, int numColors, int brightness = 50);
+	virtual void init(CRGB *leds, int numLeds, CRGB *colors, int numColors, int brightness = 50);
 protected:
 	CRGB *_leds;
 	CRGB *_colors;
