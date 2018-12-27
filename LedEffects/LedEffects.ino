@@ -105,25 +105,27 @@ void nextEffect() {
 
 	delete currentEffect;
 
-	if (effects[currentEffectPos] == EFFECT::STAR_SKY) {
+	switch (effects[currentEffectPos])
+	{
+	case EFFECT::STAR_SKY:
 		currentEffect = new StarSkyEffect(STAR_SKY_NUM_STARS);
-	}
-	else if (effects[currentEffectPos] == EFFECT::STAR_RUN) {
+		break;
+	case EFFECT::STAR_RUN:
 		currentEffect = new StarRunEffect();
-	}
-	else if (effects[currentEffectPos] == EFFECT::STAR_RUN_FILL) {
+		break;
+	case EFFECT::STAR_RUN_FILL:
 		currentEffect = new StarRunFillEffect();
-	}
-	else if (effects[currentEffectPos] == EFFECT::STATIC_COLOR) {
+		break;
+	case EFFECT::STATIC_COLOR:
 		currentEffect = new StaticColorEffect();
-	}
-	else if (effects[currentEffectPos] == EFFECT::SMOOTH_FADE) {
+		break;
+	case EFFECT::SMOOTH_FADE:
 		currentEffect = new SmoothFadeEffect();
-	}
-	else if (effects[currentEffectPos] == EFFECT::STORAGE) {
+		break;
+	case EFFECT::STORAGE:
 		currentEffect = new StorageEffect();
+		break;
 	}
-
 
 	currentEffect->init(leds, NUM_LEDS, colors, NUM_COLORS, BRIGHTNESS);
 	startAt = millis();
