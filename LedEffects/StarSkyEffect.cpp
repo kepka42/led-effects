@@ -19,7 +19,7 @@ void StarSkyEffect::loop()
 	this->clearLine();
 	for (int i = 0; i < this->_numStars; i++) {
 		int randLed = random(this->_numLeds);
-		this->_leds[randLed] = *this->_color;
+		this->_leds[randLed] = this->getRandomColor();
 	}
 
 	delay(100);

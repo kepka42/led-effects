@@ -10,5 +10,6 @@ public:
 	void loop();
 private:
 	int _led;
+	bool _isBlackLoop = false;
 };
 

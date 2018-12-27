@@ -21,7 +21,7 @@ void StarRunEffect::loop()
 		this->_led = 0;
 	}
 
-	this->_leds[this->_led] = *this->_color;
+	this->_leds[this->_led] = this->_color;
 	this->_led++;
 
 	delay(10);

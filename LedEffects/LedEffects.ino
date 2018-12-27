@@ -8,7 +8,7 @@
 
 #define NUM_EFFECTS 4
 #define NUM_LEDS 300
-#define SECONDS_PER_EFFECT 60
+#define SECONDS_PER_EFFECT 30
 
 #define STAR_SKY_NUM_STARS 3
 enum EFFECT {
