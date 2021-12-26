@@ -11,7 +11,7 @@ Effect::~Effect()
 {
 }
 
-void Effect::init(CRGB *leds, int numLeds, CRGB *colors, int numColors, int brightness = 50)
+void Effect::init(CRGB *leds, int numLeds, CRGB *colors, int numColors, int brightness)
 {
 	this->_leds = leds;
 	this->_numLeds = numLeds;

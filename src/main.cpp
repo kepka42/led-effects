@@ -1,13 +1,13 @@
 #include "FastLED.h"
 #include "Arduino.h"
 
-#include "Effect.h"
-#include "StarSkyEffect.h"
-#include "StarRunFillEffect.h"
-#include "StarRunEffect.h"
-#include "StaticColorEffect.h"
-#include "SmoothFadeEffect.h"
-#include "StorageEffect.h"
+#include "Effects/Effect.h"
+#include "Effects/StarSkyEffect.h"
+#include "Effects/StarRunFillEffect.h"
+#include "Effects/StarRunEffect.h"
+#include "Effects/StaticColorEffect.h"
+#include "Effects/SmoothFadeEffect.h"
+#include "Effects/StorageEffect.h"
 
 #define PIN 12
 #define NUM_EFFECTS 6
