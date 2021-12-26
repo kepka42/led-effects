@@ -1,7 +1,5 @@
 #include "StarRunEffect.h"
 
-#include "FastLED.h"
-
 
 StarRunEffect::StarRunEffect()
 {

@@ -1,5 +1,9 @@
 #pragma once
+
 #include "Effect.h"
+#include "Arduino.h"
+#include "FastLED.h"
+
 class StarRunFillEffect :
 	public Effect
 {

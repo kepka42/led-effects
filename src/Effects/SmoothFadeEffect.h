@@ -1,5 +1,8 @@
 #pragma once
+
 #include "Effect.h"
+#include "Arduino.h"
+
 class SmoothFadeEffect :
 	public Effect
 {

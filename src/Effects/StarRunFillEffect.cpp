@@ -1,8 +1,5 @@
 #include "StarRunFillEffect.h"
 
-#include "Arduino.h"
-#include "FastLED.h"
-
 StarRunFillEffect::StarRunFillEffect()
 {
 	this->_led = 0;

@@ -1,7 +1,4 @@
 #include "StorageEffect.h"
-#include "Arduino.h"
-#include "FastLED.h"
-
 
 StorageEffect::StorageEffect()
 {

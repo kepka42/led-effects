@@ -1,8 +1,5 @@
 #include "StaticColorEffect.h"
 
-#include "FastLED.h"
-
-
 StaticColorEffect::StaticColorEffect()
 {
 	this->_isColorFilled = false;

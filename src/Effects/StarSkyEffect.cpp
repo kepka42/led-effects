@@ -1,7 +1,4 @@
 #include "StarSkyEffect.h"
-#include "FastLED.h"
-#include "Arduino.h"
-
 
 StarSkyEffect::StarSkyEffect(int numStars)
 {
