@@ -1,4 +1,5 @@
 #include "FastLED.h"
+#include "Arduino.h"
 
 #include "Effect.h"
 #include "StarSkyEffect.h"
