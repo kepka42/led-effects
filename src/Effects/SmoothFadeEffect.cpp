@@ -7,11 +7,6 @@ SmoothFadeEffect::SmoothFadeEffect()
 	this->_isUpBrightness = true;
 }
 
-
-SmoothFadeEffect::~SmoothFadeEffect()
-{
-}
-
 void SmoothFadeEffect::loop()
 {
 	FastLED.setBrightness(this->_currentBrightness);

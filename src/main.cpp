@@ -9,9 +9,9 @@
 #include "Effects/SmoothFadeEffect.h"
 #include "Effects/StorageEffect.h"
 
-#define PIN 12
+#define PIN 9
 #define NUM_EFFECTS 6
-#define NUM_LEDS 300
+#define NUM_LEDS 100
 #define SECONDS_PER_EFFECT 60
 #define BRIGHTNESS 100
 
@@ -104,6 +104,7 @@ void nextEffect() {
         currentEffectPos++;
     }
 
+    currentEffect->reset();
     delete currentEffect;
 
     switch (effects[currentEffectPos])

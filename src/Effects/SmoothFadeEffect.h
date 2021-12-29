@@ -8,7 +8,6 @@ class SmoothFadeEffect :
 {
 public:
 	SmoothFadeEffect();
-	~SmoothFadeEffect();
 
 	void loop() override;
 private:

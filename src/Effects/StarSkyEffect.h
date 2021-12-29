@@ -8,8 +8,7 @@ class StarSkyEffect :
 	public Effect
 {
 public:
-	StarSkyEffect(int numStars);
-	~StarSkyEffect();
+	explicit StarSkyEffect(int numStars);
 	void loop() override;
 private:
 	int _numStars;

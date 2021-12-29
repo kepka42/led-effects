@@ -264,3 +264,5 @@ __vm/
 
 .pio/
 cmake-build-*/
+
+.DS_Store

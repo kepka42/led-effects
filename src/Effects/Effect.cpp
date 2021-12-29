@@ -6,7 +6,6 @@ Effect::Effect()
 {
 }
 
-
 Effect::~Effect()
 {
 }

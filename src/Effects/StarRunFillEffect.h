@@ -9,7 +9,6 @@ class StarRunFillEffect :
 {
 public:
 	StarRunFillEffect();
-	~StarRunFillEffect();
 
 	void loop() override;
 private:

@@ -8,7 +8,6 @@ class StarRunEffect :
 {
 public:
 	StarRunEffect();
-	~StarRunEffect();
 	void loop() override;
 private:
 	int _led;

@@ -3,21 +3,13 @@
 StorageEffect::StorageEffect()
 {
 	this->_numRunningLeds = 30;
-	this->_isBlackLoop = false;
-
 	this->_initRunningLeds();
 }
 
-void StorageEffect::init(CRGB *leds, int numLeds, CRGB *colors, int numColors, int brightness = 50)
+void StorageEffect::init(CRGB *leds, int numLeds, CRGB *colors, int numColors, int brightness)
 {
 	Effect::init(leds, numLeds, colors, numColors, brightness);
 	this->_maxLed = numLeds;
-}
-
-
-StorageEffect::~StorageEffect()
-{
-	delete this->_runningLeds;
 }
 
 void StorageEffect::loop()
@@ -59,4 +51,8 @@ void StorageEffect::_initRunningLeds()
 		this->_runningLeds[i] = pos;
 		pos -= 10;
 	}
+}
+
+void StorageEffect::reset() {
+    delete this->_runningLeds;
 }

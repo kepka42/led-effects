@@ -8,8 +8,7 @@ class StaticColorEffect :
 {
 public:
 	StaticColorEffect();
-	~StaticColorEffect();
-	void loop();
+	void loop() override;
 private:
 	bool _isColorFilled;
 };

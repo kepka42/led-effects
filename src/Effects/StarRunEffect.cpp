@@ -7,10 +7,6 @@ StarRunEffect::StarRunEffect()
 }
 
 
-StarRunEffect::~StarRunEffect()
-{
-}
-
 void StarRunEffect::loop()
 {
 	FastLED.setBrightness(this->_brightness);

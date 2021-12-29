@@ -5,11 +5,6 @@ StaticColorEffect::StaticColorEffect()
 	this->_isColorFilled = false;
 }
 
-
-StaticColorEffect::~StaticColorEffect()
-{
-}
-
 void StaticColorEffect::loop()
 {
 	if (!this->_isColorFilled) {

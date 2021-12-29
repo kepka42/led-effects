@@ -5,11 +5,6 @@ StarSkyEffect::StarSkyEffect(int numStars)
 	this->_numStars = numStars;
 }
 
-
-StarSkyEffect::~StarSkyEffect()
-{
-}
-
 void StarSkyEffect::loop()
 {
 	FastLED.setBrightness(this->_brightness);
