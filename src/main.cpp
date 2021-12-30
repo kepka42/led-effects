@@ -12,7 +12,7 @@
 #define PIN 9
 #define NUM_EFFECTS 6
 #define NUM_LEDS 100
-#define SECONDS_PER_EFFECT 60
+#define SECONDS_PER_EFFECT 40
 #define BRIGHTNESS 200
 
 #define STAR_SKY_NUM_STARS 3
