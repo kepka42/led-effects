@@ -12,7 +12,7 @@
 #define NUM_EFFECTS 5
 #define NUM_LEDS 100
 #define SECONDS_PER_EFFECT 60
-#define BRIGHTNESS 200
+#define BRIGHTNESS 150
 
 #define STAR_SKY_NUM_STARS 30
 enum EFFECT {

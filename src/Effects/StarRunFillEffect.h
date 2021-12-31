@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "FastLED.h"
 
-#define MAX_BLINKS_COUNT 5
+#define MAX_BLINKS_COUNT 6
 
 class StarRunFillEffect :
 	public Effect
