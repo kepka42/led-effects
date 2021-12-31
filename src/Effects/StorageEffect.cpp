@@ -38,7 +38,7 @@ void StorageEffect::loop()
 			this->_initRunningLeds();
 		}
 
-		delay(1);
+		delay(15);
 	}
 }
 

@@ -33,5 +33,5 @@ void SmoothFadeEffect::loop()
 		this->_color = this->getRandomColor();
 	}
 
-	delay(50);
+	delay(25);
 }

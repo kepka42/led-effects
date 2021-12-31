@@ -14,5 +14,5 @@ void StarSkyEffect::loop()
 		this->_leds[randLed] = this->getRandomColor();
 	}
 
-	delay(100);
+	delay(300);
 }

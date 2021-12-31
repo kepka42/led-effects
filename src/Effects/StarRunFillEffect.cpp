@@ -17,5 +17,5 @@ void StarRunFillEffect::loop()
 	this->_leds[this->_led] = this->_isBlackLoop ? CRGB::Black : this->getRandomColor();
 	this->_led++;
 
-	delay(25);
+	delay(75);
 }
