@@ -1,5 +1,8 @@
 #include "RandomColorSwitchEffect.h"
 
+RandomColorSwitchEffect::RandomColorSwitchEffect() {
+}
+
 void RandomColorSwitchEffect::loop() {
     FastLED.setBrightness(this->_brightness);
     for (int i = 0; i <= this->_numLeds; i++) {

@@ -10,7 +10,7 @@ class StarRunFillEffect :
 	public Effect
 {
 public:
-	StarRunFillEffect();
+    explicit StarRunFillEffect();
 
 	void loop() override;
 private:

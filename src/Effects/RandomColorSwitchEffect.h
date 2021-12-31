@@ -8,6 +8,7 @@
 class RandomColorSwitchEffect
         : public Effect {
 public:
+    explicit RandomColorSwitchEffect();
     void loop() override;
 };
 

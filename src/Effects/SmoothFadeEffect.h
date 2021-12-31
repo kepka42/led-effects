@@ -2,12 +2,13 @@
 
 #include "Effect.h"
 #include "Arduino.h"
+#include "FastLED.h"
 
 class SmoothFadeEffect :
 	public Effect
 {
 public:
-	SmoothFadeEffect();
+    explicit SmoothFadeEffect();
 
 	void loop() override;
 private:
