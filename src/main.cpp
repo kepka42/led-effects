@@ -4,10 +4,9 @@
 #include "Effects/Effect.h"
 #include "Effects/StarSkyEffect.h"
 #include "Effects/StarRunFillEffect.h"
-#include "Effects/StarRunEffect.h"
-#include "Effects/StaticColorEffect.h"
 #include "Effects/SmoothFadeEffect.h"
 #include "Effects/StorageEffect.h"
+#include "Effects/RandomColorSwitchEffect.h"
 
 #define PIN 9
 #define NUM_EFFECTS 6
@@ -15,14 +14,13 @@
 #define SECONDS_PER_EFFECT 60
 #define BRIGHTNESS 200
 
-#define STAR_SKY_NUM_STARS 3
+#define STAR_SKY_NUM_STARS 30
 enum EFFECT {
     STAR_SKY,
-    STAR_RUN,
     STAR_RUN_FILL,
-    STATIC_COLOR,
     SMOOTH_FADE,
-    STORAGE,
+    RANDOM_COLOR_SWITCH,
+    STORAGE
 };
 
 CRGB leds[NUM_LEDS];
@@ -56,12 +54,11 @@ CRGB colors[NUM_COLORS] = {
 };
 
 byte effects[NUM_EFFECTS] = {
-        EFFECT::STATIC_COLOR,
+        EFFECT::RANDOM_COLOR_SWITCH,
         EFFECT::STAR_SKY,
-        EFFECT::STAR_RUN,
         EFFECT::STAR_RUN_FILL,
         EFFECT::SMOOTH_FADE,
-        EFFECT::STORAGE
+        EFFECT::STORAGE,
 };
 int currentEffectPos;
 
@@ -83,7 +80,7 @@ void setup() {
     currentEffectPos = 0;
     startAt = millis();
 
-    currentEffect = new StaticColorEffect();
+    currentEffect = new RandomColorSwitchEffect();
     currentEffect->init(leds, NUM_LEDS, colors, NUM_COLORS, BRIGHTNESS);
 }
 
@@ -112,20 +109,17 @@ void nextEffect() {
         case EFFECT::STAR_SKY:
             currentEffect = new StarSkyEffect(STAR_SKY_NUM_STARS);
             break;
-        case EFFECT::STAR_RUN:
-            currentEffect = new StarRunEffect();
-            break;
         case EFFECT::STAR_RUN_FILL:
             currentEffect = new StarRunFillEffect();
-            break;
-        case EFFECT::STATIC_COLOR:
-            currentEffect = new StaticColorEffect();
             break;
         case EFFECT::SMOOTH_FADE:
             currentEffect = new SmoothFadeEffect();
             break;
         case EFFECT::STORAGE:
             currentEffect = new StorageEffect();
+            break;
+        case EFFECT::RANDOM_COLOR_SWITCH:
+            currentEffect = new RandomColorSwitchEffect();
             break;
     }
 

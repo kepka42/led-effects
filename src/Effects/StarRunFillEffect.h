@@ -4,6 +4,8 @@
 #include "Arduino.h"
 #include "FastLED.h"
 
+#define MAX_BLINKS_COUNT 5
+
 class StarRunFillEffect :
 	public Effect
 {
@@ -14,5 +16,7 @@ public:
 private:
 	int _led;
 	bool _isBlackLoop = false;
+    bool _isBlinking = false;
+    int _blinksCount = 0;
 };
 
