@@ -22,5 +22,10 @@ protected:
 
 	void clearLine();
 	CRGB getRandomColor();
+
+    bool wait(int ms);
+private:
+    int _delayFromMs;
+    bool _delayIsFirstRun = true;
 };
 

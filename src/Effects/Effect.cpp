@@ -31,3 +31,16 @@ CRGB Effect::getRandomColor()
 	int rand = random(_numColors);
 	return this->_colors[rand];
 }
+
+bool Effect::wait(int ms) {
+    if (this->_delayIsFirstRun) {
+        this->_delayFromMs = millis();
+        return true;
+    }
+
+    if (millis() - this->_delayFromMs >= ms) {
+        this->_delayFromMs = millis();
+        return true;
+    }
+    return false;
+}

@@ -9,6 +9,10 @@ SmoothFadeEffect::SmoothFadeEffect()
 
 void SmoothFadeEffect::loop()
 {
+    if (!this->wait(25)) {
+        return;
+    }
+
 	FastLED.setBrightness(this->_currentBrightness);
 	if (!this->_isColorFilled) {
 		for (int i = 0; i < this->_numLeds; i++) {
@@ -32,6 +36,4 @@ void SmoothFadeEffect::loop()
 	if (this->_currentBrightness <= 0) {
 		this->_color = this->getRandomColor();
 	}
-
-	delay(25);
 }

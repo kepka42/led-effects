@@ -21,6 +21,7 @@ void StarRunFillEffect::loop()
 
         this->_blinksCount++;
 
+        // todo: refactor to non block delay()
         delay(500);
         return;
     }
@@ -39,5 +40,6 @@ void StarRunFillEffect::loop()
 	this->_leds[this->_led] = this->_isBlackLoop ? CRGB::Black : this->getRandomColor();
 	this->_led++;
 
+    // todo: refactor to non block delay()
 	delay(100);
 }

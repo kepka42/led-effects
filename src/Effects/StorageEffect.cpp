@@ -38,6 +38,7 @@ void StorageEffect::loop()
 			this->_initRunningLeds();
 		}
 
+        // todo: refactor to non block delay()
 		delay(15);
 	}
 }
