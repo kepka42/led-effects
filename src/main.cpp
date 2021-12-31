@@ -11,7 +11,7 @@
 #define PIN 9
 #define NUM_EFFECTS 5
 #define NUM_LEDS 100
-#define SECONDS_PER_EFFECT 50
+#define SECONDS_PER_EFFECT 60
 #define BRIGHTNESS 200
 
 #define STAR_SKY_NUM_STARS 30
@@ -78,8 +78,7 @@ void setup() {
 
     startAt = millis();
     currentEffectPos = 0;
-    currentEffect = new RandomColorSwitchEffect();
-    currentEffect->init(leds, NUM_LEDS, colors, NUM_COLORS, BRIGHTNESS);
+    nextEffect();
 }
 
 void loop() {
@@ -92,14 +91,16 @@ void loop() {
 }
 
 void nextEffect() {
-    if (currentEffectPos >= NUM_EFFECTS - 1) {
-        currentEffectPos = 0;
-    } else {
-        currentEffectPos++;
-    }
+    if (currentEffect != nullptr) {
+        if (currentEffectPos >= NUM_EFFECTS - 1) {
+            currentEffectPos = 0;
+        } else {
+            currentEffectPos++;
+        }
 
-    currentEffect->reset();
-    delete currentEffect;
+        currentEffect->reset();
+        delete currentEffect;
+    }
 
     switch (effects[currentEffectPos])
     {

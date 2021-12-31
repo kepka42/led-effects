@@ -9,7 +9,7 @@ SmoothFadeEffect::SmoothFadeEffect()
 
 void SmoothFadeEffect::loop()
 {
-    if (!this->wait(25)) {
+    if (!this->wait(100)) {
         return;
     }
 

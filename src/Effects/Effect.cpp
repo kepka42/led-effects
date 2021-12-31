@@ -2,6 +2,7 @@
 
 Effect::Effect()
 {
+    this->_delayIsFirstRun = true;
 }
 
 Effect::~Effect()
@@ -32,8 +33,9 @@ CRGB Effect::getRandomColor()
 	return this->_colors[rand];
 }
 
-bool Effect::wait(int ms) {
+bool Effect::wait(unsigned long  ms) {
     if (this->_delayIsFirstRun) {
+        this->_delayIsFirstRun = false;
         this->_delayFromMs = millis();
         return true;
     }

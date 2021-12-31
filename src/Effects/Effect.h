@@ -23,9 +23,9 @@ protected:
 	void clearLine();
 	CRGB getRandomColor();
 
-    bool wait(int ms);
+    bool wait(unsigned long ms);
 private:
-    int _delayFromMs;
-    bool _delayIsFirstRun = true;
+    unsigned long _delayFromMs;
+    bool _delayIsFirstRun;
 };
 
