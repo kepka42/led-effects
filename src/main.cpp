@@ -11,7 +11,7 @@
 #define PIN 9
 #define NUM_EFFECTS 5
 #define NUM_LEDS 100
-#define SECONDS_PER_EFFECT 10
+#define SECONDS_PER_EFFECT 50
 #define BRIGHTNESS 200
 
 #define STAR_SKY_NUM_STARS 30
@@ -75,7 +75,6 @@ void setup() {
     randomSeed(analogRead(0));
 
     FastLED.addLeds<NEOPIXEL, PIN>(leds, NUM_LEDS);
-
 
     startAt = millis();
     currentEffectPos = 0;

@@ -1,5 +1,7 @@
 #pragma once
+
 #include "FastLED.h"
+#include "Arduino.h"
 
 class Effect
 {

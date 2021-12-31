@@ -1,6 +1,4 @@
 #include "Effect.h"
-#include "FastLED.h"
-#include "Arduino.h"
 
 Effect::Effect()
 {
